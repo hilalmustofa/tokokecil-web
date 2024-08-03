@@ -1,4 +1,4 @@
 const baseUrl = process.env.NODE_ENV === "development"
-    ? "https://data2011.my.id"
-    : "https://data2011.my.id";
+    ? "http://51.79.166.35:4525"
+    : "http://51.79.166.35:4525";
 export default baseUrl;

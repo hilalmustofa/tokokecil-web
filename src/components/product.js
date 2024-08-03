@@ -6,7 +6,7 @@ import baseUrl from "./baseurl";
 
 
 const api = axios.create({
-  baseURL: 'http://akuntesterwork-001-site1.ctempurl.com/api',
+  baseURL: 'http://51.79.166.35:4525/api',
 });
 
 const token = localStorage.getItem('token');
