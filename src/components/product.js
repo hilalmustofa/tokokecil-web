@@ -39,12 +39,22 @@ const ProductList = () => {
 
 
   const deleteProduct = async (id) => {
+    const destroySignature = prompt("Please enter the delete token:");
+    if (!destroySignature) {
+      setError("Delete token is invalid.");
+      return;
+    }
+
     try {
-      await myAxios.delete(baseUrl + `/api/products/${id}`);
+      await myAxios.delete(baseUrl + `/api/products/${id}`, {
+        headers: {
+          'X-Destroy-Signature': destroySignature
+        }
+      });
       getProducts();
       window.location.reload();
     } catch (error) {
-      console.log(error.response.data.error.message)
+      console.log(error.response.data.error.message);
       setError(error.response.data.error.message);
     }
   };
@@ -80,10 +90,7 @@ const ProductList = () => {
                       >
                         Edit
                       </Link>
-                      <button
-                        onClick={() => deleteProduct(product.id)}
-                        className="button is-small is-danger"
-                      >
+                      <button onClick={() => deleteProduct(product.id)} className="button is-small is-danger">
                         Delete
                       </button>
                     </p>
