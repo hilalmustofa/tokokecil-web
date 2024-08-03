@@ -6,7 +6,7 @@ import Loading from "./loading";
 
 const token = localStorage.getItem("token");
 const api = axios.create({
-  baseURL: 'http://51.79.166.35:4525/api',
+  baseURL: 'https://tokokecil.theworkpc.com/api',
 });
 const Detail = () => {
   const [products, setProduct] = useState([]);
